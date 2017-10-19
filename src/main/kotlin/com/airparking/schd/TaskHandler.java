@@ -1,4 +1,4 @@
 package com.airparking.schd;
 
-public class ScheduleHandler {
+public interface TaskHandler {
 }

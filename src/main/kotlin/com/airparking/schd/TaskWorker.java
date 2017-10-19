@@ -5,10 +5,10 @@ import com.airparking.schd.data.TaskDataStore;
 
 import java.util.List;
 
-public class Worker {
+public class TaskWorker {
     private TaskDataStore taskDataStore;
 
-    private List<ScheduleHandler> scheduleHandlers;
+    private TaskPipeline taskPipeline;
 
     private Integer takeCount = 100;
 
@@ -21,9 +21,7 @@ public class Worker {
     }
 
     private void doWork(final TaskData taskData) {
-        if (scheduleHandlers == null || scheduleHandlers.size() == 0)
-            return;
-        
+
     }
 
     public TaskDataStore getTaskDataStore() {
@@ -34,12 +32,12 @@ public class Worker {
         this.taskDataStore = taskDataStore;
     }
 
-    public List<ScheduleHandler> getScheduleHandlers() {
-        return scheduleHandlers;
+    public TaskPipeline getTaskPipeline() {
+        return taskPipeline;
     }
 
-    public void setScheduleHandlers(List<ScheduleHandler> scheduleHandlers) {
-        this.scheduleHandlers = scheduleHandlers;
+    public void setTaskPipeline(TaskPipeline taskPipeline) {
+        this.taskPipeline = taskPipeline;
     }
 
     public Integer getTakeCount() {
