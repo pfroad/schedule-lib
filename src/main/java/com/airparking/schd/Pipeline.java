@@ -3,7 +3,7 @@ package com.airparking.schd;
 import java.util.List;
 
 public interface Pipeline {
-    Pipeline addAfter(String name, AbstractTaskHandler taskHandler);
+    Pipeline addLast(String name, AbstractTaskHandler taskHandler);
 
     Pipeline addFirst(String name, AbstractTaskHandler taskHandler);
 

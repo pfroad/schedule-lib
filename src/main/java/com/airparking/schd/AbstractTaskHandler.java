@@ -37,12 +37,18 @@ abstract public class AbstractTaskHandler implements TaskHandler {
     public TaskHandler findNext(String tag) {
         AbstractTaskHandler taskHandler = this;
         do {
+            if (taskHandler == null)
+                break;
+
             taskHandler = taskHandler.next;
         } while (!this.getHandlerTag(taskHandler).equals(tag));
         return taskHandler;
     }
 
     private String getHandlerTag(TaskHandler taskHandler) {
+        if (taskHandler == null)
+            return "";
+
         APTaskHandler apTaskHandler = taskHandler.getClass().getAnnotation(APTaskHandler.class);
 
         if (apTaskHandler != null)

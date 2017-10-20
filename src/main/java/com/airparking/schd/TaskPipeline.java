@@ -17,7 +17,7 @@ public class TaskPipeline implements Pipeline {
     private ConcurrentMap<String, AbstractTaskHandler> handlerMap = new ConcurrentHashMap<>();
 
     @Override
-    public Pipeline addAfter(String name, AbstractTaskHandler taskHandler) {
+    public Pipeline addLast(String name, AbstractTaskHandler taskHandler) {
         handlerMap.put(name, taskHandler);
 
         if (this.head == null) {

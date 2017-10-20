@@ -15,6 +15,9 @@ public class RedisTaskDataStore implements TaskDataStore<TaskData> {
 
     private String dataKey;
 
+    public RedisTaskDataStore(JedisPool jedisPool) {
+        this.jedisPool = jedisPool;
+    }
 
     public TaskData take() {
         try (Jedis jedis = jedisPool.getResource()) {
